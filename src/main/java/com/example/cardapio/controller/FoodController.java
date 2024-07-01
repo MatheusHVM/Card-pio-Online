@@ -24,6 +24,7 @@ public class FoodController {
         return;
     }
 
+    @CrossOrigin(origins = "*", allowCredentials = "*")
     @GetMapping
     public List<FoodResponseDTO> getAll(){
 
