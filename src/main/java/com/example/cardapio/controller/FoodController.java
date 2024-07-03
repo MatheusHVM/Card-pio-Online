@@ -11,20 +11,18 @@ import java.util.List;
 
 @RestController
 @RequestMapping("food")
+@CrossOrigin(origins = "http://localhost:5173")
 public class FoodController {
 
     @Autowired
     private FoodRepository repository;
 
-    @CrossOrigin(origins = "*", allowCredentials = "*")
     @PostMapping
     public void saveFood(@RequestBody FoodRequestDTO data){
         Food foodData = new Food(data);
         repository.save(foodData);
-        return;
     }
 
-    @CrossOrigin(origins = "*", allowCredentials = "*")
     @GetMapping
     public List<FoodResponseDTO> getAll(){
 
